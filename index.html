@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crack Sypharix - Ücretsiz Oyunlar Oyna</title>
+<meta name="description" content="Crack Sypharix - Ücretsiz tarayıcı oyunları: Snake, Tetris, Pong, Breakout. Klasik oyunları oynayın!" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #0a0a0f;
+    --bg-card: #0f0f1a;
+    --bg-nav: #07070e;
+    --accent: #00e5ff;
+    --accent2: #ff3c6e;
+    --accent3: #7b2fff;
+    --text: #d0d8e8;
+    --text-dim: #6a7490;
+    --border: #1a1a2e;
+    --glow: 0 0 18px rgba(0,229,255,0.3);
+    --font-head: 'Orbitron', monospace;
+    --font-mono: 'Share Tech Mono', monospace;
+    --font-body: 'Rajdhani', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(123,47,255,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 0%, rgba(0,229,255,0.06) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a1a2e' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* ───── LOGO AREA ───── */
+  .logo-area {
+    background: linear-gradient(180deg, #07070e 0%, #0a0a1a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+  }
+  .logo-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 14px;
+  }
+  .logo-text {
+    font-family: var(--font-head);
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--text);
+    line-height: 1;
+  }
+  .logo-text span.crack { color: var(--accent2); }
+  .logo-text span.sypharix { color: var(--accent); text-shadow: var(--glow); }
+  .logo-tagline {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* SEARCH BOX */
+  .search-box {
+    display: flex; align-items: center;
+    background: #0e0e1c;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color .2s;
+  }
+  .search-box:focus-within { border-color: var(--accent); box-shadow: var(--glow); }
+  .search-box input {
+    background: none; border: none; outline: none;
+    color: var(--text); font-family: var(--font-mono); font-size: 13px;
+    padding: 9px 14px; width: 240px;
+  }
+  .search-box input::placeholder { color: var(--text-dim); }
+  .search-box button {
+    background: var(--accent3); border: none; outline: none; cursor: pointer;
+    color: #fff; padding: 9px 16px; font-family: var(--font-head);
+    font-size: 11px; letter-spacing: 1px; transition: background .2s;
+  }
+  .search-box button:hover { background: var(--accent); color: #000; }
+
+  /* ───── NAVIGATION ───── */
+  nav {
+    background: #08080f;
+    border-bottom: 2px solid var(--accent3);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 30px rgba(123,47,255,0.2);
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 20px;
+    display: flex; align-items: center; gap: 4px;
+    overflow-x: auto;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-item {
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 14px 16px;
+    white-space: nowrap;
+    transition: color .2s, background .2s;
+    position: relative;
+  }
+  .nav-item:hover, .nav-item.active {
+    color: var(--accent);
+    background: rgba(0,229,255,0.05);
+  }
+  .nav-item.active::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+  .nav-item i { margin-right: 5px; }
+
+  /* ───── MAIN LAYOUT ───── */
+  .main-wrap {
+    max-width: 1280px; margin: 28px auto; padding: 0 20px;
+    display: grid; grid-template-columns: 1fr 300px; gap: 24px;
+  }
+  @media (max-width: 900px) {
+    .main-wrap { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+  }
+
+  /* ───── HERO GRID ───── */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 240px 180px;
+    gap: 3px;
+    margin-bottom: 28px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+  }
+  .hero-card {
+    position: relative; overflow: hidden; cursor: pointer;
+    background: #111120;
+  }
+  .hero-card:first-child { grid-row: span 2; }
+  .hero-card img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform .4s ease;
+    filter: brightness(0.7);
+  }
+  .hero-card:hover img { transform: scale(1.05); filter: brightness(0.9); }
+  .hero-card-info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 14px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  }
+  .hero-card-title {
+    font-family: var(--font-head);
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 1.3;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent2);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .hero-badge.pc { background: var(--accent3); }
+  .hero-badge.android { background: #2fa84f; }
+
+  /* ───── SECTION TITLE ───── */
+  .section-title {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-title h2 {
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--glow);
+  }
+  .section-title::before {
+    content: '';
+    display: block; width: 4px; height: 18px;
+    background: var(--accent2);
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--accent2);
+  }
+  .section-title .count {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  /* ───── POST CARDS ───── */
+  .post-list { display: flex; flex-direction: column; gap: 2px; }
+  .post-card {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid transparent;
+    transition: border-color .2s, background .2s;
+    text-decoration: none; color: inherit;
+    cursor: pointer;
+  }
+  .post-card:hover {
+    border-left-color: var(--accent);
+    background: #111122;
+  }
+  .post-card:hover .post-title { color: var(--accent); }
+  .post-thumb {
+    width: 100px; min-width: 100px; height: 70px;
+    overflow: hidden; border-radius: 3px;
+    background: #0e0e1c;
+    position: relative;
+  }
+  .post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .post-thumb .thumb-badge {
+    position: absolute; top: 4px; right: 4px;
+    background: var(--accent2);
+    color: #fff; font-size: 9px; font-family: var(--font-mono);
+    padding: 1px 5px; border-radius: 2px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .post-thumb .thumb-badge.tr { background: #e63946; }
+  .post-thumb .thumb-badge.dlc { background: var(--accent3); }
+  .post-info { flex: 1; min-width: 0; }
+  .post-title {
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+    transition: color .2s;
+    /* clamp to 2 lines */
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .post-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-mono); font-size: 11px; color: var(--text-dim);
+    flex-wrap: wrap;
+  }
+  .post-meta .author { color: var(--accent); }
+  .post-excerpt {
+    font-size: 13px; color: var(--text-dim); margin-top: 5px;
+    line-height: 1.5;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  /* PAGINATION */
+  .pagination {
+    display: flex; gap: 6px; margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .page-btn {
+    font-family: var(--font-head);
+    font-size: 11px;
+    padding: 7px 13px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all .2s;
+    text-decoration: none;
+    border-radius: 2px;
+  }
+  .page-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .page-btn.current {
+    background: var(--accent3); border-color: var(--accent3);
+    color: #fff; box-shadow: 0 0 12px rgba(123,47,255,0.5);
+  }
+
+  /* ───── SIDEBAR ───── */
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .sidebar-widget {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent3);
+    overflow: hidden;
+  }
+  .widget-title {
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(123,47,255,0.08);
+  }
+  .widget-body { padding: 12px 14px; }
+  .widget-post {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none; color: inherit; cursor: pointer;
+  }
+  .widget-post:last-child { border-bottom: none; }
+  .widget-post:hover .widget-post-title { color: var(--accent); }
+  .widget-post-thumb {
+    width: 72px; min-width: 72px; height: 50px;
+    overflow: hidden; border-radius: 2px; background: #0e0e1c;
+  }
+  .widget-post-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .widget-post-title {
+    font-family: var(--font-head);
+    font-size: 11px; font-weight: 700;
+    color: var(--text); line-height: 1.4;
+    transition: color .2s;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .widget-post-date {
+    font-family: var(--font-mono); font-size: 10px;
+    color: var(--text-dim); margin-top: 4px;
+  }
+
+  /* CATEGORIES WIDGET */
+  .cat-list { list-style: none; }
+  .cat-list li {
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
+  }
+  .cat-list li:last-child { border-bottom: none; }
+  .cat-list a {
+    display: flex; justify-content: space-between; align-items: center;
+    text-decoration: none;
+    font-family: var(--font-body); font-size: 14px; color: var(--text-dim);
+    transition: color .2s;
+  }
+  .cat-list a:hover { color: var(--accent); }
+  .cat-list .cat-count {
+    font-family: var(--font-mono); font-size: 11px;
+    background: var(--bg-dark); border: 1px solid var(--border);
+    padding: 1px 8px; border-radius: 2px; color: var(--text-dim);
+  }
+
+  /* ───── FOOTER ───── */
+  footer {
+    background: var(--bg-nav);
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .footer-main {
+    max-width: 1280px; margin: 0 auto; padding: 36px 20px;
+    display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 32px;
+  }
+  @media (max-width: 768px) {
+    .footer-main { grid-template-columns: 1fr; }
+  }
+  .footer-logo-text {
+    font-family: var(--font-head);
+    font-size: 20px; font-weight: 900; margin-bottom: 8px;
+  }
+  .footer-logo-text span.crack { color: var(--accent2); }
+  .footer-logo-text span.sypharix { color: var(--accent); }
+  .footer-desc { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
+  .footer-section-title {
+    font-family: var(--font-head); font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; color: var(--accent); margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .footer-links a {
+    font-size: 13px; color: var(--text-dim); text-decoration: none;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-sub {
+    max-width: 1280px; margin: 0 auto;
+    border-top: 1px solid var(--border);
+    padding: 14px 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .footer-sub-copy {
+    font-family: var(--font-mono); font-size: 11px; color: var(--text-dim);
+  }
+  .footer-sub-menu { display: flex; gap: 16px; }
+  .footer-sub-menu a {
+    font-family: var(--font-mono); font-size: 11px; color: var(--text-dim);
+    text-decoration: none; transition: color .2s;
+  }
+  .footer-sub-menu a:hover { color: var(--accent); }
+
+  /* TICKER */
+  .ticker-wrap {
+    background: #0b0b18;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden; padding: 8px 0;
+  }
+  .ticker-label {
+    display: inline-block;
+    background: var(--accent2);
+    color: #fff; font-family: var(--font-head);
+    font-size: 10px; letter-spacing: 1px;
+    padding: 2px 12px; margin-right: 14px;
+    vertical-align: middle;
+  }
+  .ticker-inner {
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker 30s linear infinite;
+    font-family: var(--font-mono); font-size: 12px; color: var(--text-dim);
+  }
+  .ticker-inner span { margin-right: 48px; }
+  .ticker-inner span::before { content: '// '; color: var(--accent3); }
+  @keyframes ticker {
+    from { transform: translateX(100vw); }
+    to   { transform: translateX(-100%); }
+  }
+
+  /* GLITCH ANIMATION on logo */
+  @keyframes glitch {
+    0%, 100% { text-shadow: 0 0 10px var(--accent); }
+    20% { text-shadow: -3px 0 var(--accent2), 3px 0 var(--accent3); }
+    40% { text-shadow: 3px 0 var(--accent2), -3px 0 var(--accent3); }
+    60% { text-shadow: 0 0 10px var(--accent); }
+  }
+  .logo-text span.sypharix {
+    animation: glitch 5s infinite;
+  }
+
+  /* Mobile nav toggle */
+  .mobile-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    color: var(--accent); font-size: 20px; padding: 10px;
+  }
+  @media (max-width: 768px) {
+    .mobile-toggle { display: block; }
+    .hero-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .hero-card:first-child { grid-row: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGO AREA -->
+<div class="logo-area">
+  <div class="logo-inner">
+    <div>
+      <a href="#" class="logo-text">
+        <span class="crack">CRACK</span><span class="sypharix">SYPHARIX</span>
+      </a>
+      <div class="logo-tagline">&gt;_ Ücretsiz Oyunlar</div>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="Oyun, program ara..." />
+      <button>ARA</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-item active">&#x2302; Ana Sayfa</a>
+    <a href="counterstrike2.html" class="nav-item">&#x1F52B; Counter-Strike 2</a>
+    <a href="dota2.html" class="nav-item">&#x1F3AE; Dota 2</a>
+    <a href="apexlegends.html" class="nav-item">&#x1F3AF; Apex Legends</a>
+    <a href="pubg.html" class="nav-item">&#x1F3C6; PUBG</a>
+    <a href="#" class="nav-item">&#x1F4AC; İstek</a>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-label">SON EKLENEN OYUNLAR</span>
+  <span class="ticker-inner">
+    <span>Counter-Strike 2 - Taktiksel FPS</span>
+    <span>Dota 2 - Efsanevi MOBA</span>
+    <span>Apex Legends - Ücretsiz Battle Royale</span>
+    <span>PUBG - Battlegrounds</span>
+    <span>GTA III - Açık Dünya Dönüm Noktası</span>
+    <span>GTA: Vice City - 80'ler Suç</span>
+    <span>GTA IV - Liberty City</span>
+    <span>GTA: San Andreas - Serinin Efsanesi</span>
+    <span>Geometry Dash - Ritmik Platform</span>
+    <span>Garry's Mod - Sandbox Deneyimi</span>
+    <span>Hello Neighbor - Korku Macerası</span>
+    <span>Sifu - Dövüş Sanatları</span>
+    <span>Escape The Backrooms - Kaçış Korku</span>
+    <span>Red Dead Redemption - Western Klasik</span>
+    <span>Red Dead Redemption 2 - Western Aksiyon</span>
+    <span>Fortnite - Battle Royale</span>
+  </span>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+  <main>
+
+    <!-- HERO GRID -->
+    <div class="hero-grid">
+      <div class="hero-card">
+        <img src="./cs2.jpg" onerror="this.style.background='linear-gradient(135deg,#1a0030,#000)';this.style.display='block';this.src='';" alt="Counter-Strike 2" />
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,255,0.08),rgba(123,47,255,0.12));"></div>
+        <div class="hero-card-info">
+          <div class="hero-badge" style="background:#00e5ff;">FPS</div>
+          <div class="hero-card-title">Counter-Strike 2 - Taktiksel FPS</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="./geometrydash.jpg" onerror="this.style.background='linear-gradient(135deg,#001a30,#0a0020)';this.style.display='block';this.src='';" alt="Geometry Dash" />
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,60,110,0.08),rgba(123,47,255,0.12));"></div>
+        <div class="hero-card-info">
+          <div class="hero-badge" style="background:#ff3c6e;">PLATFORM</div>
+          <div class="hero-card-title">Geometry Dash - Ritmik Platform</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="./garrysmod.jpg" onerror="this.style.background='linear-gradient(135deg,#0a1000,#001000)';this.style.display='block';this.src='';" alt="Garry's Mod" />
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,255,0.05),rgba(0,100,200,0.1));"></div>
+        <div class="hero-card-info">
+          <div class="hero-badge" style="background:#2fa84f;">SANDBOX</div>
+          <div class="hero-card-title">Garry's Mod - Sandbox Oyun</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LATEST POSTS -->
+    <div class="section-title">
+      <h2>Oyunlar</h2>
+    </div>
+
+    <div class="post-list">
+
+      <!-- Counter-Strike 2 -->
+      <a href="counterstrike2.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a20,#001a30);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#00e5ff;">CS2</div>
+          <span class="thumb-badge" style="background:#00e5ff;">FPS</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Counter-Strike 2 - Taktiksel FPS</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>23 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Valve'in yeni Source 2 motoru ile geliştirilen Counter-Strike 2, gelişmiş grafikler ve oyun mekaniği ile taktiksel FPS deneyimini zirveye taşıyor.</div>
+        </div>
+      </a>
+
+      <!-- Dota 2 -->
+      <a href="dota2.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#100020,#1a0030);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#7b2fff;">DOTA2</div>
+          <span class="thumb-badge" style="background:#7b2fff;">MOBA</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Dota 2 - Efsanevi MOBA</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>22 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Valve'in ücretsiz MOBA oyunu Dota 2, 120'den fazla kahraman ve derin strateji sistemi ile e-spor dünyasının en büyük oyunlarından biri.</div>
+        </div>
+      </a>
+
+      <!-- Apex Legends -->
+      <a href="apexlegends.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#001a00,#002010);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#2fa84f;">APEX</div>
+          <span class="thumb-badge" style="background:#2fa84f;">BATTLE ROYALE</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Apex Legends - Ücretsiz Battle Royale</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>22 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Respawn Entertainment'ın Titanfall evreninde geçen Apex Legends, benzersiz Legend'lar ve hızlı tempolu battle royale deneyimi sunuyor.</div>
+        </div>
+      </a>
+
+      <!-- PUBG -->
+      <a href="pubg.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a00,#200a00);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#ff3c6e;">PUBG</div>
+          <span class="thumb-badge" style="background:#ff3c6e;">BATTLE ROYALE</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">PUBG - Battle Royale Öncüsü</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>22 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">PlayerUnknown's Battlegrounds, 100 oyuncu ile başlayan gerçekçi battle royale deneyimi. Farklı haritalar ve oyun modları ile sürekli güncelleniyor.</div>
+        </div>
+      </a>
+
+      <!-- GTA V -->
+      <a href="gtav.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1020,#0a0a30);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#00e5ff;">GTAV</div>
+          <span class="thumb-badge" style="background:#e6ac00;">AÇIK DÜNYA</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Grand Theft Auto V - Açık Dünya Klasiği</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>22 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Rockstar Games'in şaheseri GTA V, üç farklı karakter ile Los Santos şehrinde suç dünyasında maceralara atılın. GTA Online ile çok oyunculu deneyim.</div>
+        </div>
+      </a>
+
+      <!-- GTA IV -->
+      <a href="gtaiv.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a10,#101020);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#7b2fff;">GTA IV</div>
+          <span class="thumb-badge" style="background:#00e5ff;">AÇIK DÜNYA</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Grand Theft Auto IV - Liberty City</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>22 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">GTA IV, Liberty City'de geçen karanlık hikayesi ve gelişmiş sürüş dinamikleri ile seride yeni bir dönem başlattı. Niko Bellic'in Amerikan rüyası arayışı.</div>
+        </div>
+      </a>
+
+      <!-- GTA San Andreas -->
+      <a href="gtasanandreas.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#201000,#302010);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#ff3c6e;">SA</div>
+          <span class="thumb-badge" style="background:#2fa84f;">AÇIK DÜNYA</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">GTA: San Andreas - Serinin Efsanesi</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>22 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">San Andreas, CJ ile dönüş hikayesini anlatır. Geniş harita, çete savaşları, araç modları ve unutulmaz görevlerle GTA tarihinin en sevilen oyunlarından biri.</div>
+        </div>
+      </a>
+
+      <!-- GTA Vice City -->
+      <a href="gtavicecity.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#201020,#401020);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#00e5ff;">VC</div>
+          <span class="thumb-badge" style="background:#ff3c6e;">AÇIK DÜNYA</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Grand Theft Auto: Vice City - 80'ler Suç</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>22 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Vice City, neon ışıklı Miami benzeri şehirde geçen suç dolu bir hikaye sunar. Tommy Vercetti ile çete çatışmaları, araçlar ve retro müzik sizi bekliyor.</div>
+        </div>
+      </a>
+
+      <!-- GTA III -->
+      <a href="gta3.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#100010,#301030);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#ff3c6e;">3</div>
+          <span class="thumb-badge" style="background:#00e5ff;">AÇIK DÜNYA</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Grand Theft Auto III - Serinin Dönüm Noktası</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>22 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">GTA III, üçüncü kişi bakış açısını ve açık dünya deneyimini popüler hale getirdi. Liberty City'de suç, özgürlük ve kaosun iç içe geçtiği bir macera.</div>
+        </div>
+      </a>
+
+      <!-- League of Legends -->
+      <a href="leagueoflegends.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0000,#300000);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#ff3c6e;">LOL</div>
+          <span class="thumb-badge" style="background:#ff3c6e;">MOBA</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">League of Legends - E-spor Devrimi</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>21 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Riot Games'in MOBA oyunu LoL, 160'dan fazla şampiyon ve derin strateji sistemi ile e-spor dünyasının en büyük oyunlarından biri olmaya devam ediyor.</div>
+        </div>
+      </a>
+
+      <!-- Cyberpunk 2077 -->
+      <a href="cyberpunk2077.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1500,#001500);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#7b2fff;">CYBERPUNK</div>
+          <span class="thumb-badge" style="background:#7b2fff;">RPG</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Cyberpunk 2077 - Geleceğin RPG'si</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>20 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">CD Projekt RED'in açık dünya RPG'si Cyberpunk 2077, Night City'de geçen derin hikaye ve özgür oynayış ile RPG türünü yeniden tanımlıyor.</div>
+        </div>
+      </a>
+
+      <!-- The Witcher 3 -->
+      <a href="thewitcher3.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#001020,#002030);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#00e5ff;">WITCHER3</div>
+          <span class="thumb-badge" style="background:#e6ac00;">RPG</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">The Witcher 3: Wild Hunt - RPG Klasiği</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>20 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">CD Projekt RED'in Witcher serisinin üçüncü oyunu, Geralt of Rivia'nın hikayesi ile unutulmaz bir RPG deneyimi sunuyor.</div>
+        </div>
+      </a>
+
+      <!-- Red Dead Redemption -->
+      <a href="reddeadredemption.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#150a00,#2a1000);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#2fa84f;">RDR</div>
+          <span class="thumb-badge" style="background:#7b2fff;">AÇIK DÜNYA</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Red Dead Redemption - Western Klasik</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>20 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Rockstar Games'in ilk Red Dead Redemption oyunu, John Marston'un ailesini kurtarmak için çeteler ve kanun kaçaklarıyla mücadele ettiği dokunaklı bir western hikayesi sunuyor.</div>
+        </div>
+      </a>
+
+      <!-- Red Dead Redemption 2 -->
+      <a href="reddeadredemption2.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#100010,#1a001a);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#7b2fff;">RDR2</div>
+          <span class="thumb-badge" style="background:#2fa84f;">AÇIK DÜNYA</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Red Dead Redemption 2 - Western Epik</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>20 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Rockstar Games'in western açık dünya oyunu RDR2, Arthur Morgan'ın hikayesi ile Amerikan vahşi batısının son günlerini anlatıyor.</div>
+        </div>
+      </a>
+
+      <!-- Fortnite -->
+      <a href="fortnite.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#001510,#001a10);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#2fa84f;">FORTNITE</div>
+          <span class="thumb-badge" style="background:#2fa84f;">BATTLE ROYALE</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Fortnite - Eğlence Platformu</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>20 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Epic Games'in battle royale oyunu Fortnite, 100 oyuncu ile başlayan maçların yanı sıra yaratıcı modlar ve etkinliklerle sürekli yenileniyor.</div>
+        </div>
+      </a>
+
+      <!-- Geometry Dash -->
+      <a href="geometrydash.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#001a30,#0a0030);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#ff3c6e;">GD</div>
+          <span class="thumb-badge" style="background:#ff3c6e;">PLATFORM</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Geometry Dash - Ritmik Platform Oyunu</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>20 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Geometry Dash, zorlu ritmik platform bölümleri ve çevrimiçi kullanıcı yapımı seviyeleriyle hız ve dikkat gerektiren bir deneyim sunuyor.</div>
+        </div>
+      </a>
+
+      <!-- Garry's Mod -->
+      <a href="garrysmod.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#001000,#002010);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#00e5ff;">GMOD</div>
+          <span class="thumb-badge" style="background:#2fa84f;">SANDBOX</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Garry's Mod - Sandbox Deneyimi</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>20 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Garry's Mod, tamamen açık uçlu sandbox mekanikleri ve mod desteği sayesinde oyunculara kendi oyun deneyimlerini yaratma özgürlüğü sunuyor.</div>
+        </div>
+      </a>
+
+      <!-- Hello Neighbor -->
+      <a href="helloneighbor.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#201000,#302020);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#ff3c6e;">HN</div>
+          <span class="thumb-badge" style="background:#ff3c6e;">KORKU</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Hello Neighbor - Gizemli Komşu</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>23 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Hello Neighbor, komşunuzun bodrumundaki sırrı çözmeye çalışırken her denemede sizi bekleyen tuzakları ve gizemleri keşfettiğiniz gerilim dolu bir oyundur.</div>
+        </div>
+      </a>
+
+      <!-- Sifu -->
+      <a href="sifu.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#001020,#001a20);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#00e5ff;">SIFU</div>
+          <span class="thumb-badge" style="background:#00e5ff;">DÖVÜŞ</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Sifu - Dövüş Sanatları</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>23 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Sifu, ölümden sonra yaşlanan bir dövüşçünün intikam hikayesini anlatır. Yakın dövüş, refleksler ve stratejiyle ilerleyen zorlu bir aksiyon deneyimi.</div>
+        </div>
+      </a>
+
+      <!-- Escape The Backrooms -->
+      <a href="escapethebackrooms.html" class="post-card">
+        <div class="post-thumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1200,#002010);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#2fa84f;">BACK</div>
+          <span class="thumb-badge" style="background:#7b2fff;">KORKU</span>
+        </div>
+        <div class="post-info">
+          <div class="post-title">Escape The Backrooms - Kaçış Korku</div>
+          <div class="post-meta">
+            <span class="author">// Sypharis</span>
+            <span>23 Nisan 2026</span>
+          </div>
+          <div class="post-excerpt">Escape The Backrooms, sonsuz sarı ofis odalarından kaçmaya çalıştığınız gerilimli bir keşif oyunudur. Her koridor, yeni bir tehlike barındırır.</div>
+        </div>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Latest PC Games widget -->
+    <div class="sidebar-widget">
+      <div class="widget-title">&#x1F3AE; Son Oyunlar</div>
+      <div class="widget-body">
+        <a href="geometrydash.html" class="widget-post">
+          <div class="widget-post-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#001a30,#0a0020);display:flex;align-items:center;justify-content:center;font-size:9px;color:#ff3c6e;font-family:'Orbitron',monospace;">GD</div>
+          </div>
+          <div>
+            <div class="widget-post-title">Geometry Dash</div>
+            <div class="widget-post-date">// 23 Nisan 2026</div>
+          </div>
+        </a>
+        <a href="garrysmod.html" class="widget-post">
+          <div class="widget-post-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#001000,#002010);display:flex;align-items:center;justify-content:center;font-size:9px;color:#00e5ff;font-family:'Orbitron',monospace;">GMOD</div>
+          </div>
+          <div>
+            <div class="widget-post-title">Garry's Mod</div>
+            <div class="widget-post-date">// 23 Nisan 2026</div>
+          </div>
+        </a>
+        <a href="helloneighbor.html" class="widget-post">
+          <div class="widget-post-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#201000,#302020);display:flex;align-items:center;justify-content:center;font-size:9px;color:#ff3c6e;font-family:'Orbitron',monospace;">HN</div>
+          </div>
+          <div>
+            <div class="widget-post-title">Hello Neighbor</div>
+            <div class="widget-post-date">// 23 Nisan 2026</div>
+          </div>
+        </a>
+        <a href="sifu.html" class="widget-post">
+          <div class="widget-post-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#001020,#001a20);display:flex;align-items:center;justify-content:center;font-size:9px;color:#00e5ff;font-family:'Orbitron',monospace;">SIFU</div>
+          </div>
+          <div>
+            <div class="widget-post-title">Sifu</div>
+            <div class="widget-post-date">// 23 Nisan 2026</div>
+          </div>
+        </a>
+        <a href="escapethebackrooms.html" class="widget-post">
+          <div class="widget-post-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1200,#002010);display:flex;align-items:center;justify-content:center;font-size:9px;color:#7b2fff;font-family:'Orbitron',monospace;">BACK</div>
+          </div>
+          <div>
+            <div class="widget-post-title">Escape The Backrooms</div>
+            <div class="widget-post-date">// 23 Nisan 2026</div>
+          </div>
+        </a>
+        <a href="reddeadredemption.html" class="widget-post">
+          <div class="widget-post-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#150a00,#2a1000);display:flex;align-items:center;justify-content:center;font-size:9px;color:#2fa84f;font-family:'Orbitron',monospace;">RDR</div>
+          </div>
+          <div>
+            <div class="widget-post-title">Red Dead Redemption</div>
+            <div class="widget-post-date">// 20 Nisan 2026</div>
+          </div>
+        </a>
+        <a href="gtasanandreas.html" class="widget-post">
+          <div class="widget-post-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#201000,#302010);display:flex;align-items:center;justify-content:center;font-size:9px;color:#ff3c6e;font-family:'Orbitron',monospace;">SA</div>
+          </div>
+          <div>
+            <div class="widget-post-title">GTA: San Andreas</div>
+            <div class="widget-post-date">// 22 Nisan 2026</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="sidebar-widget">
+      <div class="widget-title">&#x1F4C2; Oyun Kategorileri</div>
+      <div class="widget-body">
+        <ul class="cat-list">
+          <li><a href="#">FPS Oyunları <span class="cat-count">2</span></a></li>
+          <li><a href="#">MOBA Oyunları <span class="cat-count">2</span></a></li>
+          <li><a href="#">Battle Royale <span class="cat-count">3</span></a></li>
+          <li><a href="#">RPG Oyunları <span class="cat-count">2</span></a></li>
+          <li><a href="#">Açık Dünya <span class="cat-count">2</span></a></li>
+          <li><a href="#">Aksiyon Oyunları <span class="cat-count">1</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <div class="footer-logo-text"><span class="crack">CRACK</span><span class="sypharix">SYPHARIX</span></div>
+      <div class="footer-desc">Steam ve popüler oyun sayfaları — Geometry Dash, Garry's Mod, GTA, Red Dead ve diğer büyük başlıklar.</div>
+    </div>
+    <div>
+      <div class="footer-section-title">Hızlı Linkler</div>
+      <ul class="footer-links">
+        <li><a href="index.html">&#x2302; Ana Sayfa</a></li>
+        <li><a href="gtav.html">&#x1F693; GTA V</a></li>
+        <li><a href="gtasanandreas.html">&#x1F3CE; GTA San Andreas</a></li>
+        <li><a href="gtaiv.html">&#x1F3CE; GTA IV</a></li>
+        <li><a href="reddeadredemption.html">&#x1F98A; Red Dead Redemption</a></li>
+        <li><a href="reddeadredemption2.html">&#x1F98A; Red Dead Redemption 2</a></li>
+        <li><a href="garrysmod.html">&#x1F3AE; Garry's Mod</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="footer-sub">
+    <div class="footer-sub-copy">&copy; Copyright 2026 – sypharixcrack.github.io</div>
+    <div class="footer-sub-menu">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="gtav.html">GTA V</a>
+      <a href="gtasanandreas.html">GTA San Andreas</a>
+      <a href="reddeadredemption.html">Red Dead Redemption</a>
+      <a href="garrysmod.html">Garry's Mod</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
