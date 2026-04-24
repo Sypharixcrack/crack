@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crack Sypharix - Ücretsiz Oyunlar Oyna</title>
-<meta name="description" content="Crack Sypharix - Ücretsiz tarayıcı oyunları: Snake, Tetris, Pong, Breakout. Klasik oyunları oynayın!" />
+<meta name="description" content="Crack Sypharix - Ücretsiz Oyunlar İçin Tıkla" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -141,58 +141,59 @@
     .sidebar { display: none; }
   }
 
-  /* ───── HERO GRID ───── */
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 240px 180px;
-    gap: 3px;
-    margin-bottom: 28px;
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    box-shadow: 0 0 40px rgba(0,0,0,0.5);
-  }
-  .hero-card {
-    position: relative; overflow: hidden; cursor: pointer;
-    background: #111120;
-  }
-  .hero-card:first-child { grid-row: span 2; }
-  .hero-card img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
-    transition: transform .4s ease;
-    filter: brightness(0.7);
-  }
-  .hero-card:hover img { transform: scale(1.05); filter: brightness(0.9); }
-  .hero-card-info {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 14px 16px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-  }
-  .hero-card-title {
-    font-family: var(--font-head);
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-    line-height: 1.3;
-  }
-  .hero-badge {
-    display: inline-block;
-    background: var(--accent2);
-    color: #fff;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 2px;
-    margin-bottom: 6px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .hero-badge.pc { background: var(--accent3); }
-  .hero-badge.android { background: #2fa84f; }
-
+ /* ───── HERO GRID ───── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 3px;
+  height: 420px;
+  margin-bottom: 28px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+.hero-card {
+  position: relative; overflow: hidden; cursor: pointer;
+  background: #111120;
+}
+.hero-card:first-child { grid-row: span 2; }
+.hero-card img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform .4s ease;
+  filter: brightness(0.7);
+}
+.hero-card:hover img { transform: scale(1.05); filter: brightness(0.9); }
+.hero-card-info {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 14px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+.hero-card-title {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--accent2);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero-badge.pc { background: var(--accent3); }
+.hero-badge.android { background: #2fa84f; }
   /* ───── SECTION TITLE ───── */
   .section-title {
     display: flex; align-items: center; gap: 12px;
@@ -492,11 +493,6 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-item active">&#x2302; Ana Sayfa</a>
-    <a href="counterstrike2.html" class="nav-item">&#x1F52B; Counter-Strike 2</a>
-    <a href="dota2.html" class="nav-item">&#x1F3AE; Dota 2</a>
-    <a href="apexlegends.html" class="nav-item">&#x1F3AF; Apex Legends</a>
-    <a href="pubg.html" class="nav-item">&#x1F3C6; PUBG</a>
-    <a href="#" class="nav-item">&#x1F4AC; İstek</a>
   </div>
 </nav>
 
@@ -504,10 +500,6 @@
 <div class="ticker-wrap">
   <span class="ticker-label">SON EKLENEN OYUNLAR</span>
   <span class="ticker-inner">
-    <span>Counter-Strike 2 - Taktiksel FPS</span>
-    <span>Dota 2 - Efsanevi MOBA</span>
-    <span>Apex Legends - Ücretsiz Battle Royale</span>
-    <span>PUBG - Battlegrounds</span>
     <span>GTA III - Açık Dünya Dönüm Noktası</span>
     <span>GTA: Vice City - 80'ler Suç</span>
     <span>GTA IV - Liberty City</span>
@@ -519,7 +511,6 @@
     <span>Escape The Backrooms - Kaçış Korku</span>
     <span>Red Dead Redemption - Western Klasik</span>
     <span>Red Dead Redemption 2 - Western Aksiyon</span>
-    <span>Fortnite - Battle Royale</span>
   </span>
 </div>
 
@@ -527,34 +518,29 @@
 <div class="main-wrap">
   <main>
 
-    <!-- HERO GRID -->
     <div class="hero-grid">
-      <div class="hero-card">
-        <img src="./cs2.jpg" onerror="this.style.background='linear-gradient(135deg,#1a0030,#000)';this.style.display='block';this.src='';" alt="Counter-Strike 2" />
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,255,0.08),rgba(123,47,255,0.12));"></div>
-        <div class="hero-card-info">
-          <div class="hero-badge" style="background:#00e5ff;">FPS</div>
-          <div class="hero-card-title">Counter-Strike 2 - Taktiksel FPS</div>
-        </div>
-      </div>
-      <div class="hero-card">
-        <img src="./geometrydash.jpg" onerror="this.style.background='linear-gradient(135deg,#001a30,#0a0020)';this.style.display='block';this.src='';" alt="Geometry Dash" />
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,60,110,0.08),rgba(123,47,255,0.12));"></div>
-        <div class="hero-card-info">
-          <div class="hero-badge" style="background:#ff3c6e;">PLATFORM</div>
-          <div class="hero-card-title">Geometry Dash - Ritmik Platform</div>
-        </div>
-      </div>
-      <div class="hero-card">
-        <img src="./garrysmod.jpg" onerror="this.style.background='linear-gradient(135deg,#0a1000,#001000)';this.style.display='block';this.src='';" alt="Garry's Mod" />
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,255,0.05),rgba(0,100,200,0.1));"></div>
-        <div class="hero-card-info">
-          <div class="hero-badge" style="background:#2fa84f;">SANDBOX</div>
-          <div class="hero-card-title">Garry's Mod - Sandbox Oyun</div>
-        </div>
-      </div>
+  <div class="hero-card">
+    <img src="./geometrydash.jpg" alt="Geometry Dash" />
+    <div class="hero-card-info">
+      <div class="hero-badge">PLATFORM</div>
+      <div class="hero-card-title">Geometry Dash - Ritmik Platform</div>
     </div>
-
+  </div>
+  <div class="hero-card">
+    <img src="./garrysmod.jpg" alt="Garry's Mod" />
+    <div class="hero-card-info">
+      <div class="hero-badge" style="background:#2fa84f;">SANDBOX</div>
+      <div class="hero-card-title">Garry's Mod - Sandbox Deneyimi</div>
+    </div>
+  </div>
+  <div class="hero-card">
+    <img src="./eurotrucksimulator2.jpg" alt="Euro Truck Simulator 2" />
+    <div class="hero-card-info">
+      <div class="hero-badge pc">SİMÜLASYON</div>
+      <div class="hero-card-title">Euro Truck Simulator 2 - Yol Macerası</div>
+    </div>
+  </div>
+</div>
     <!-- LATEST POSTS -->
     <div class="section-title">
       <h2>Oyunlar</h2>
@@ -562,70 +548,7 @@
 
     <div class="post-list">
 
-      <!-- Counter-Strike 2 -->
-      <a href="counterstrike2.html" class="post-card">
-        <div class="post-thumb">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a20,#001a30);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#00e5ff;">CS2</div>
-          <span class="thumb-badge" style="background:#00e5ff;">FPS</span>
-        </div>
-        <div class="post-info">
-          <div class="post-title">Counter-Strike 2 - Taktiksel FPS</div>
-          <div class="post-meta">
-            <span class="author">// Sypharis</span>
-            <span>23 Nisan 2026</span>
-          </div>
-          <div class="post-excerpt">Valve'in yeni Source 2 motoru ile geliştirilen Counter-Strike 2, gelişmiş grafikler ve oyun mekaniği ile taktiksel FPS deneyimini zirveye taşıyor.</div>
-        </div>
-      </a>
-
-      <!-- Dota 2 -->
-      <a href="dota2.html" class="post-card">
-        <div class="post-thumb">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#100020,#1a0030);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#7b2fff;">DOTA2</div>
-          <span class="thumb-badge" style="background:#7b2fff;">MOBA</span>
-        </div>
-        <div class="post-info">
-          <div class="post-title">Dota 2 - Efsanevi MOBA</div>
-          <div class="post-meta">
-            <span class="author">// Sypharis</span>
-            <span>22 Nisan 2026</span>
-          </div>
-          <div class="post-excerpt">Valve'in ücretsiz MOBA oyunu Dota 2, 120'den fazla kahraman ve derin strateji sistemi ile e-spor dünyasının en büyük oyunlarından biri.</div>
-        </div>
-      </a>
-
-      <!-- Apex Legends -->
-      <a href="apexlegends.html" class="post-card">
-        <div class="post-thumb">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#001a00,#002010);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#2fa84f;">APEX</div>
-          <span class="thumb-badge" style="background:#2fa84f;">BATTLE ROYALE</span>
-        </div>
-        <div class="post-info">
-          <div class="post-title">Apex Legends - Ücretsiz Battle Royale</div>
-          <div class="post-meta">
-            <span class="author">// Sypharis</span>
-            <span>22 Nisan 2026</span>
-          </div>
-          <div class="post-excerpt">Respawn Entertainment'ın Titanfall evreninde geçen Apex Legends, benzersiz Legend'lar ve hızlı tempolu battle royale deneyimi sunuyor.</div>
-        </div>
-      </a>
-
-      <!-- PUBG -->
-      <a href="pubg.html" class="post-card">
-        <div class="post-thumb">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a00,#200a00);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#ff3c6e;">PUBG</div>
-          <span class="thumb-badge" style="background:#ff3c6e;">BATTLE ROYALE</span>
-        </div>
-        <div class="post-info">
-          <div class="post-title">PUBG - Battle Royale Öncüsü</div>
-          <div class="post-meta">
-            <span class="author">// Sypharis</span>
-            <span>22 Nisan 2026</span>
-          </div>
-          <div class="post-excerpt">PlayerUnknown's Battlegrounds, 100 oyuncu ile başlayan gerçekçi battle royale deneyimi. Farklı haritalar ve oyun modları ile sürekli güncelleniyor.</div>
-        </div>
-      </a>
-
+    
       <!-- GTA V -->
       <a href="gtav.html" class="post-card">
         <div class="post-thumb">
@@ -706,22 +629,7 @@
         </div>
       </a>
 
-      <!-- League of Legends -->
-      <a href="leagueoflegends.html" class="post-card">
-        <div class="post-thumb">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0000,#300000);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:10px;color:#ff3c6e;">LOL</div>
-          <span class="thumb-badge" style="background:#ff3c6e;">MOBA</span>
-        </div>
-        <div class="post-info">
-          <div class="post-title">League of Legends - E-spor Devrimi</div>
-          <div class="post-meta">
-            <span class="author">// Sypharis</span>
-            <span>21 Nisan 2026</span>
-          </div>
-          <div class="post-excerpt">Riot Games'in MOBA oyunu LoL, 160'dan fazla şampiyon ve derin strateji sistemi ile e-spor dünyasının en büyük oyunlarından biri olmaya devam ediyor.</div>
-        </div>
-      </a>
-
+      
       <!-- Cyberpunk 2077 -->
       <a href="cyberpunk2077.html" class="post-card">
         <div class="post-thumb">
@@ -961,15 +869,15 @@
 
     <!-- Categories -->
     <div class="sidebar-widget">
-      <div class="widget-title">&#x1F4C2; Oyun Kategorileri</div>
+      <div class="widget-title">Siteyi Yapan Sypharix'in Amaçları</div>
       <div class="widget-body">
-        <ul class="cat-list">
-          <li><a href="#">FPS Oyunları <span class="cat-count">2</span></a></li>
-          <li><a href="#">MOBA Oyunları <span class="cat-count">2</span></a></li>
-          <li><a href="#">Battle Royale <span class="cat-count">3</span></a></li>
-          <li><a href="#">RPG Oyunları <span class="cat-count">2</span></a></li>
-          <li><a href="#">Açık Dünya <span class="cat-count">2</span></a></li>
-          <li><a href="#">Aksiyon Oyunları <span class="cat-count">1</span></a></li>
+       
+          <li> İnsanarın Bedavaya Oyun Oynamasını Sağlamak 
+          <li> Oyun Dünyasındaki Efsaneleri Herkese Ulaştırmak
+          <li> Oyun Topluluğuna Katkıda Bulunmak
+          <li> Oyun Kültürünü Yaymak
+          <li> Oyunseverlere Kaliteli İçerik Sunmak
+          <li>  Oyunları Herkes İçin Erişilebilir Kılmak
         </ul>
       </div>
     </div>
@@ -999,7 +907,7 @@
 
   </div>
   <div class="footer-sub">
-    <div class="footer-sub-copy">&copy; Copyright 2026 – sypharixcrack.github.io</div>
+    <div class="footer-sub-copy">&copy; Copyright 2026 – sypharixcrack.github.io/crack/</div>
     <div class="footer-sub-menu">
       <a href="index.html">Ana Sayfa</a>
       <a href="gtav.html">GTA V</a>
